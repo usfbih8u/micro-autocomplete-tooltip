@@ -1,0 +1,8 @@
+filetype: autocomplete
+detect:
+    filename: "^Autocomplete$"
+
+rules:
+    - identifier.autocomplete: "^.+$"
+    # is not a space, is "u200B"
+    - identifier.autocomplete.selected: "^.+​"

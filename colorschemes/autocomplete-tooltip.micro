@@ -1,0 +1,2 @@
+color-link identifier.autocomplete "#ffffff,#2c3043"
+color-link identifier.autocomplete.selected "#7fdbca,#2c3043"

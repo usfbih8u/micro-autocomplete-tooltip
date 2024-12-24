@@ -1,0 +1,15 @@
+[{
+  "Name": "autocomplete_tooltip",
+  "Description": "Tooltip for Micro suggestions.",
+  "Website": "https://github.com/usfbih8u/micro-autocomplete-tooltip",
+  "Tags": ["tooltip, autocomplete, suggestions"],
+  "Versions": [
+    {
+      "Version": "0.0.1",
+      "Url": "https://github.com/usfbih8u/micro-autocomplete-tooltip/archive/0.0.1.tar.gz",
+      "Require": {
+        "micro": ">=2.0.14"
+      }
+    }
+  ]
+}]
