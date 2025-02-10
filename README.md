@@ -21,4 +21,6 @@ You can **change the colors** inside `colorschemes/autocomplete-tooltip.micro`.
 
 ## Installation
 
+**Do NOT change the name of the plugin directory `micro-autocomplete-tooltip`**.  It is used as a prefix to avoid path collisions in `package.path` when requiring modules.
+
 In Linux, you can clone the repo anywhere and create a symlink inside `.config/micro/plug` using the `ENABLE_FOR_MICRO.sh` script.
