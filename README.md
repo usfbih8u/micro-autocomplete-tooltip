@@ -4,7 +4,7 @@ Show **suggestions in a tooltip** at the cursor location. **Works for buffers an
 
 > To cycle through the suggestions using `CursorUp` and `CursorDown`, you need to add the option `"autocomplete_tooltip.EnableCursorUpDown"` with any value other than `false` or `nil` to your `settings.json` file.
 
-## Syntax and Colorscheme
+## 🎨 Syntax and Colorscheme
 
 To improve readability, a custom syntax and colorscheme are provided until Micro allows customization of colorschemes per buffer.
 
@@ -19,8 +19,8 @@ include "gutter-message" # 👀
 
 You can **change the colors** inside `colorschemes/autocomplete-tooltip.micro`.
 
-## Installation
+## 📦 Installation
 
-**Do NOT change the name of the plugin directory `micro-autocomplete-tooltip`**.  It is used as a prefix to avoid path collisions in `package.path` when requiring modules.
+⚠️ **Do NOT change the name of the plugin directory `micro-autocomplete-tooltip`**.  It is used as a prefix to avoid path collisions in `package.path` when requiring modules.
 
 In Linux, you can clone the repo anywhere and create a symlink inside `.config/micro/plug` using the `ENABLE_FOR_MICRO.sh` script.
