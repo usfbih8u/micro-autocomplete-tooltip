@@ -58,7 +58,7 @@ local function TabLayoutSnapshot(tab, tooltipIdx)
     local snapshot = {}
     local panes = tab.Panes
     for i = 1, #panes do
-        if not tooltipIdx and i ~= tooltipIdx then -- ignore tooltipIdx
+        if not tooltipIdx or i ~= tooltipIdx + 1 then -- ignore tooltipIdx(+1 lua index)
             local paneView = panes[i]:GetView()
             table.insert(snapshot,{ view = paneView, viewValue = -paneView })
         end
