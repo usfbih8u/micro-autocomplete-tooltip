@@ -6,7 +6,7 @@
   "Versions": [
     {
       "Version": "0.0.1",
-      "Url": "https://github.com/usfbih8u/micro-autocomplete-tooltip/archive/0.0.1.tar.gz",
+      "Url": "https://github.com/usfbih8u/micro-autocomplete-tooltip/archive/0.0.1.zip",
       "Require": {
         "micro": ">=2.0.14"
       }
