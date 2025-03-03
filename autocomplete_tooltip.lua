@@ -18,7 +18,10 @@ end
 config.AddRuntimeFile(plugName, config.RTColorscheme, "colorschemes/autocomplete-tooltip.micro")
 
 function init()
-    package.path = config.ConfigDir .. "/plug/?.lua;" .. package.path
+    local plugDirPath = config.ConfigDir .. "/plug/?.lua;"
+    if string.find(package.path, plugDirPath, 1, true) == nil then
+        package.path = plugDirPath .. package.path
+    end
     config.AddRuntimeFile(plugName, config.RTSyntax, "syntax/autocomplete-tooltip.yaml")
     TooltipModule = require('micro-autocomplete-tooltip.tooltip')
 end
