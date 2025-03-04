@@ -23,7 +23,13 @@ function init()
         package.path = plugDirPath .. package.path
     end
     config.AddRuntimeFile(plugName, config.RTSyntax, "syntax/autocomplete-tooltip.yaml")
-    TooltipModule = require('micro-autocomplete-tooltip.tooltip')
+
+    local ok, module = pcall(require, 'micro-autocomplete-tooltip.tooltip')
+    if ok then -- Cloned as micro-autocomplete-tooltip
+        TooltipModule = require('micro-autocomplete-tooltip.tooltip')
+    else -- Downloaded from Micro as autocomplete_tooltip
+        TooltipModule = require(plugName .. ".tooltip")
+    end
 end
 
 ---@class (exact) Autocomplete Keeps the state of the plugin.
