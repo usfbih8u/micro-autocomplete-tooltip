@@ -51,9 +51,14 @@ local function GetSuggestionsData(bp)
     local maxWidth, maxHeight = 0, sugNum + 1 --+1 needed for status bar
     local curSugIdx = bp.Buf.CurSuggestion + 1 -- +1 lua index
 
+    local prefix = config.GetGlobalOption(plugName..".Prefix") or ""
+    assert(type(prefix) == "string")
+    local prefixLen = util.CharacterCountInString(prefix)
+    local prefixPadding = prefix == "" and "" or string.rep(" ", prefixLen)
+
     local data = {}
     for i = 1, sugNum do
-        local sug = bp.Buf.Suggestions[i]
+        local sug = string.format("%s%s", prefixPadding, bp.Buf.Suggestions[i])
         local sugLen = util.CharacterCountInString(sug)
         if maxWidth < sugLen then maxWidth = sugLen end
         table.insert(data, { content = sug, length = sugLen})
@@ -61,8 +66,12 @@ local function GetSuggestionsData(bp)
     maxWidth = maxWidth + 1 -- space for "\u200B" when sugLen is max
 
     --NOTE trailing "\u200B" is used to mark the current suggestion with syntax
-    data[curSugIdx].content = data[curSugIdx].content
-                            .. string.char(0xE2, 0x80, 0x8B) -- "\u200B"
+    data[curSugIdx].content = string.format(
+        "%s%s%s",
+        prefix,
+        prefix == "" and data[curSugIdx].content or string.sub(data[curSugIdx].content, prefixLen + 1),
+        string.char(0xE2, 0x80, 0x8B) -- "\u200B"
+    )
 
     local padded = {}
     for _, d in ipairs(data) do
