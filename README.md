@@ -4,6 +4,8 @@ Show **suggestions in a tooltip** at the cursor location. **Works for buffers an
 
 > To cycle through the suggestions using `CursorUp` and `CursorDown`, you need to add the option `"autocomplete_tooltip.EnableCursorUpDown"` with any value other than `false` or `nil` to your `settings.json` file.
 
+> To add a prefix to the current suggestion, use the option `autocomplete_tooltip.Prefix` in `settings.json`.
+
 ## 🎨 Syntax and Colorscheme
 
 To improve readability, a custom syntax and colorscheme are provided until Micro allows customization of colorschemes per buffer.
