@@ -151,7 +151,6 @@ local function AutocompleteTooltip(bp, infobar)
     local dataStr, maxWidth, maxHeight = GetSuggestionsData(suggestionsFrom)
 
     local x, y, width, height
-    local active -- only used when not onInfoBar
     if onInfoBar then
         local infoBufView = infobar:BufView() -- InfoBar's view never changes
         width = maxWidth < infoBufView.Width and maxWidth or infoBufView.Width
@@ -176,10 +175,10 @@ local function AutocompleteTooltip(bp, infobar)
         local _, wordStart = bp.Buf:GetWord()
         local loc = buffer.Loc(wordStart, bp.Cursor.Loc.Y)
         x, y, width, height = FitAroundLocation(bp, loc, maxWidth, maxHeight)
-        -- NOTE: GetPane(splitid) returns the index of the current tab in the tree of Nodes
-        active = bp:Tab():GetPane(bp:ID())
     end
 
+    -- NOTE: GetPane(splitid) returns the index of the current tab in the tree of Nodes
+    local active = bp:Tab():GetPane(bp:ID())
     if not Autocomplete.tooltip then
         Autocomplete.tooltip = TooltipModule.Tooltip.new(
             Autocomplete.name, dataStr,
@@ -203,7 +202,7 @@ local function AutocompleteTooltip(bp, infobar)
                             :Center()
     end
 
-    if not onInfoBar then bp:Tab():SetActive(active) end -- Go back to origin
+    bp:Tab():SetActive(active)
 end
 
 ---Closes the tooltip  `onAnyEvent` if there are not suggestions for the current buffer,
