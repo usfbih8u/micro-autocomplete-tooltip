@@ -1,4 +1,4 @@
-VERSION = "0.0.4"
+VERSION = "0.0.5"
 
 local micro  = import("micro")
 local config = import("micro/config")
@@ -26,7 +26,7 @@ function init()
 
     local ok, module = pcall(require, 'micro-autocomplete-tooltip.tooltip')
     if ok then -- Cloned as micro-autocomplete-tooltip
-        TooltipModule = require('micro-autocomplete-tooltip.tooltip')
+        TooltipModule = module
     else -- Downloaded from Micro as autocomplete_tooltip
         TooltipModule = require(plugName .. ".tooltip")
     end
